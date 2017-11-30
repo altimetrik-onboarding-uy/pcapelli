@@ -1,0 +1,17 @@
+As an user of the system I need to see the Home, Contacts and Compensations tabs when I enter the application so that I can access every place.
+
+As an user of the system I need to see the records in a list when I enter Contacts and Compensations tabs.
+
+As an user of the system I need to be able to enter a compensation related to an employee.
+
+As an user of the system I need to select between three different record types (Salary, Study, Research) when I enter a compensation.
+
+As an user of the system I need to see the compensation entering form grouped in three section (Employee information, General information, Compensation status).
+
+As an user of the system I need to receive an email when a compensation located in Uruguay is created.
+
+As an user of the system I need to be able to search for Compensations in any seacrh bar within the organization.
+
+As an user of the system I need to see each compensation related info (Compensation Name, Record Type,  Employee, Job Category, Location, Submitted, Status.) when I enter to Compensation tab.
+
+As an user of the system I need to a report of Compensations of all Employees divided by location.
