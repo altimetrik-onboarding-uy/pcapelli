@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>RowCount  / PARENTGROUPVAL(RowCount, Contact.Name)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA1</developerName>
+        <downGroupingContext>Contact.Compensations__r$Location__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Location Percentage</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>Contact.Compensations__r$Name</field>
+    </columns>
+    <columns>
+        <field>Contact.Compensations__r$Office__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Compensations__r$RecordType</field>
+    </columns>
+    <columns>
+        <field>Contact.Compensations__r$Job_Category__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Compensations__r$Submitted__c</field>
+    </columns>
+    <columns>
+        <field>Contact.Compensations__r$Status__c</field>
+    </columns>
+    <crossFilters>
+        <operation>with</operation>
+        <primaryTableColumn>Contact$Id</primaryTableColumn>
+        <relatedTable>Compensation__c</relatedTable>
+        <relatedTableJoinColumn>Contact__c</relatedTableJoinColumn>
+    </crossFilters>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact$Name</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Contact.Compensations__r$Location__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Public Contacts and Compensations Report</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Compensations_by_employee__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Contact.Compensations__r$LastModifiedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

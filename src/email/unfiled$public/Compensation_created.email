@@ -1,0 +1,15 @@
+Hi {!Contact.FirstName},
+
+A new compensation have been created in {!Compensation__c.Location__c}.
+The details are listed below,
+
+Location: {!Compensation__c.Location__c}
+Office: {!Compensation__c.Office__c}
+Job Category: {!Compensation__c.Job_Category__c}
+Description: {!Compensation__c.Description__c}
+Amount: {!Compensation__c.Amount__c}
+Tax: {!Compensation__c.Tax__c}
+Start Date: {!Compensation__c.Start_Date__c}
+End Date: {!Compensation__c.End_Date__c}
+Submitted: {!Compensation__c.Submitted__c}
+Status: {!Compensation__c.Status__c}
