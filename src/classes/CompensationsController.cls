@@ -8,23 +8,23 @@ public with sharing class CompensationsController {
 
         if (recordType == 'all'){
             if (contactId != null){
-                for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c WHERE Contact__r.Id =:contactId]) {
+                for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c WHERE Contact__r.Id =:contactId LIMIT 50000]) {
                                 comps.addAll(com);
                             }
                 return comps;
             }
-            for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c]) {
+            for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c LIMIT 50000]) {
                                 comps.addAll(com);
                             }
             return comps;
         }else{
             if (contactId != null){
-                for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c WHERE RecordType.Name=:recordType AND Contact__r.Id =:contactId]) {
+                for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c WHERE RecordType.Name=:recordType AND Contact__r.Id =:contactId LIMIT 50000]) {
                                 comps.addAll(com);
                             }
             	return comps;
             }
-            for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c WHERE RecordType.Name=:recordType]) {
+            for (List<Compensation__c> com : [SELECT Id, Name, Contact__r.Id, Contact__r.Name, Contact__r.Birthdate, Job_Category__c, RecordType.Name, Amount__c, Location__c, Office__c, Submitted__c, Status__c FROM Compensation__c WHERE RecordType.Name=:recordType LIMIT 50000]) {
                                 comps.addAll(com);
                             }
             	return comps;
