@@ -12,9 +12,9 @@ trigger SetSubmittedStatus on Compensation__c (before insert, before update, bef
 
     if (Trigger.isInsert){
         for(Compensation__c c : Trigger.New) {
-            if (c.Status__c == 'SUBMITTED'){
-                c.Submitted__c = true;
-            }
+          if (c.Submitted__c == true){
+              c.Status__c  = 'SUBMITTED';
+          }   
         }
 
         }
