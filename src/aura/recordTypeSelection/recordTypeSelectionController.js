@@ -5,10 +5,13 @@ onSelectChange : function(component, event, helper) {
 
 },
    fireApplicationEvent : function(cmp, event) {
+        var submittedType = cmp.find("submittedtypes").get("v.value");
         var selected = cmp.find("types").get("v.value");
+
         var appEvent = $A.get("e.c:compensationTypeSelected");
         appEvent.setParams({
-            "selection" : selected
+            "selection" : selected,
+            "selectionSubmitted" : submittedType
         });
         appEvent.fire();
     }

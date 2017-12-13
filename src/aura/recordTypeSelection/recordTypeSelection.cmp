@@ -1,5 +1,6 @@
 <aura:component >
 	<aura:attribute name="recordTypes" type="String[]" default="All,Salary,Study,Research"/>
+    <aura:attribute name="submittedTypes" type="String[]" default="All,Submitted,Not Submitted"/>
     <aura:attribute name="selection" type="String" default="all"/>
     <aura:attribute name="contactId" type="String"/>
     <aura:registerEvent name="appEvent" type="c:compensationTypeSelected"/>
@@ -9,10 +10,9 @@
              <ui:inputSelectOption text="{!type}" label="{!type}"/>
         </aura:iteration>
     </ui:inputSelect>
-
-
-
-
-
-
+    <ui:inputSelect aura:id="submittedtypes" change="{!c.fireApplicationEvent}">
+        <aura:iteration items="{!v.submittedTypes}" var="submitted">
+             <ui:inputSelectOption text="{!submitted}" label="{!submitted}"/>
+        </aura:iteration>
+    </ui:inputSelect>
 </aura:component>
