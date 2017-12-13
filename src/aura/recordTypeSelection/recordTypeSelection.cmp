@@ -1,0 +1,18 @@
+<aura:component >
+	<aura:attribute name="recordTypes" type="String[]" default="All,Salary,Study,Research"/>
+    <aura:attribute name="selection" type="String" default="all"/>
+    <aura:attribute name="contactId" type="String"/>
+    <aura:registerEvent name="appEvent" type="c:compensationTypeSelected"/>
+
+    <ui:inputSelect aura:id="types" change="{!c.fireApplicationEvent}">
+        <aura:iteration items="{!v.recordTypes}" var="type">
+             <ui:inputSelectOption text="{!type}" label="{!type}"/>
+        </aura:iteration>
+    </ui:inputSelect>
+
+
+
+
+
+
+</aura:component>

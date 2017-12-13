@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,force:lightningQuickAction,force:hasRecordId">
+    <aura:attribute name="recordId" type="String"/>
+
+
+	<c:recordTypeSelection />
+    <c:compensationsDisplay contactId="{!v.recordId}"/>
+</aura:component>
