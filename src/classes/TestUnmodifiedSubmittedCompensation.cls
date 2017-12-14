@@ -26,20 +26,20 @@ private class TestUnmodifiedSubmittedCompensation {
                                                   Location__c = 'Uruguay',
                                                    Office__c = 'MVD WTC 2',
                                                    Job_Category__c = 'Junior',
-                                                   Status__c = 'SUBMITTED'
+                                                   Submitted__c = true
                                                   );
         insert comp;
 
-        Boolean status;
+        String status;
         System.debug('ContactId' + newContact.Id);
-        for(Compensation__c m:[SELECT Submitted__c FROM Compensation__c WHERE Id = :comp.Id]) {
-               status = m.Submitted__c;
-               System.debug( 'Submited'+ m.Submitted__c);
+        for(Compensation__c m:[SELECT Status__c FROM Compensation__c WHERE Id = :comp.Id]) {
+               status = m.Status__c;
+               System.debug( 'Submited'+ m.Status__c);
             }
         System.debug('Id' + comp.Id);
         System.debug('Status' + status);
 
-        System.assertEquals(true, status);
+        System.assertEquals('SUBMITTED', status);
 
         //comp.Job_Category__c = 'Senior';
         //update comp;

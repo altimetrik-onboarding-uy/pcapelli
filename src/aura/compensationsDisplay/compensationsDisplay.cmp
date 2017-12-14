@@ -3,12 +3,13 @@
     <aura:attribute name="currParamId" type="Id" />
     <aura:attribute name="recordType" type="String"/>
     <aura:attribute name="typeSelected" type="String"/>
+    <aura:attribute name="statusTypeSelected" type="String"/>
     <aura:attribute name="contactId" type="String"/>
+    <aura:attribute name="result" type="String"/>
     <aura:attribute name="compensationsList" type="Compensation__c[]"/>
 
     <aura:handler event="c:compensationTypeSelected" action="{!c.handleApplicationEvent}"/>
     <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
-
 
 	<table class="slds-table slds-table_bordered slds-table_cell-buffer slds-table_striped">
   <thead>
@@ -53,13 +54,37 @@
             <td><p><lightning:formattedNumber value="{!compensation.Amount__c}" style="currency" currencyCode="USD"/></p></td>
             <td><p>{!compensation.Location__c}</p></td>
             <td><p>{!compensation.Office__c}</p></td>
-            <td><p><ui:outputCheckbox value="{!compensation.Submitted__c}"/></p></td>
+
+              <aura:if isTrue="{!compensation.Submitted__c}">
+                    <td><ui:outputCheckbox value="{!compensation.Submitted__c}"/></td>
+                <aura:set attribute="else">
+                  <td><p><c:compensationsTableRow compensation="{!compensation}" aura:id="selectedCompensations"/></p></td>
+                </aura:set>
+              </aura:if>
+
+
+
+
+
+
+
+
+            <!-- <td><p><ui:inputCheckbox value="{!compensation.Submitted__c}"/></p></td> -->
             <td><p>{!compensation.Status__c}</p></td>
         </tr>
     </aura:iteration>
 
   </tbody>
 </table>
+        <lightning:button label="Submit"
+                          class="slds-m-top--medium"
+                          variant="brand"
+                          onclick="{!c.clickSubmitCompensation}"/>
+    <lightning:button label="Export Excel"
+                          class="slds-m-top--medium"
+                          variant="brand"
+                          onclick="{!c.exportCSV}"/>
+
 
 
 </aura:component>

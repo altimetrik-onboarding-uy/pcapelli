@@ -1,0 +1,7 @@
+<aura:component >
+    <aura:attribute name="compensation" type="Compensation__c"/>
+
+
+    <ui:inputCheckbox text="{!v.compensation.Id}" value="{!v.compensation.Submitted__c}"/>
+
+</aura:component>
