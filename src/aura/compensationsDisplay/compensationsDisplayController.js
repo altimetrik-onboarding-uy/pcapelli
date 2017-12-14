@@ -37,6 +37,7 @@
     handleApplicationEvent : function(cmp, event) {
         var selection = event.getParam("selection");
         var submittedType = event.getParam("selectionSubmitted");
+        var contactId = cmp.get("v.contactId");
 
         // set the handler attributes based on event data
         cmp.set("v.statusTypeSelected", submittedType);
@@ -44,7 +45,8 @@
 
         var action = cmp.get("c.getCompensations");
         action.setParams({ "recordType" : selection,
-                          "submittedValue": submittedType});
+                          "submittedValue": submittedType,
+                          "contactId" : contactId});
 
 	    action.setCallback(this, function(response) {
 	        var state = response.getState();
@@ -131,7 +133,11 @@
                     counter++;
 
                 }else{
-                    csvStringResult += '"'+ objectRecords[i][skey]+'"';
+                    if (objectRecords[i][skey] === undefined){
+                        var csvAddString = '';
+                    }else{
+                        csvStringResult += '"'+ objectRecords[i][skey]+'"';
+                    }
 
                     counter++;
                 }

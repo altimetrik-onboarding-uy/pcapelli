@@ -1,3 +1,5 @@
 <aura:event type="APPLICATION">
     <aura:attribute name="selection" type="String"/>
+    <aura:attribute name="selectionSubmitted" type="String"/>
+    <aura:attribute name="contactId" type="String"/>
 </aura:event>
