@@ -1,5 +1,15 @@
 <aura:component implements="force:appHostable,force:lightningQuickAction,force:hasRecordId">
+    <style>
+        .slds-modal__container{
+        max-width: 90rem !important;
+        width:90% !important;
+
+        }
+    </style>
     <aura:attribute name="recordId" type="String"/>
+
+
+
 
 
 	<c:recordTypeSelection />
